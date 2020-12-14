@@ -1,0 +1,249 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>App que som é esse?</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" type="text/css" href="font/material-icons.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <link rel="stylesheet" type="text/css" href="font/material-icons.css">
+</head>
+
+<body>
+  <section class="inicio">
+      <h1>Que som é esse?</h1>
+      <h2>Quão bem você conhece as músicas? Então quero ver se descobre de qual pertence estes sons. Boa sorte!</h2>
+    <button>Iniciar</button>
+    <img src="img/micro .png" alt="">
+  </section>
+
+  <section class="jogo">
+    <header>
+      <p>
+        <span class="mticons">star</span> 
+         ACERTOS: <span class="acertos">0</span>
+        
+      </p>
+    </header>
+    <div>
+      <h1>Que som é esse?</h1>
+      <p>
+        <span class="mticons">alarm</span> 
+        <span class="minuto">00</span>:<span class="tempo">00</span>
+      </p>
+      <h3>Que músicas são essas?</h3>
+      <button class="certo">Graveto</button>
+      <button class="errado eliminar">Sincero com você</button>
+      <button class="errado">Supera</button>
+      <button class="errado">Bebi liguei</button>
+      <button class="errado"> Mel</button>
+      <button class="certo">Meu mel</button>
+      <button class="errado eliminar">Pequena Flor</button>
+      <button class="errado">Pupila</button>
+    </div>
+    <footer>
+      <p>
+        <span class="mticons home" >home</span>
+        <span class="mticons ajuda" >help_outline</span>
+      </p>
+    </footer>
+
+  </section>
+
+  <section class="fase2">
+    <header>
+      <p>
+        <span class="mticons">star</span> 
+        ACERTOS: <span class="acerto">0</span>
+      </p>
+    </header>
+    <div>
+      <h1>Que som é esse?</h1>
+      <p>
+        <span class="mticons">alarm</span> 
+        <span class="minuto">00</span>:
+        <span class="tempo">00</span>
+      </p>
+      <h3>Que músicas são essas?</h3>
+      <button class="certo">Com ou sem mim</button>
+      <button class="errado eliminar">Sincero com você</button>
+      <button class="errado">Fake news</button>
+      <button class="certo"> Contatinho</button>
+      <button class="errado eliminar">Tudo ok</button>
+      <button class="errado">Baila Conmigo</button>
+      <button class="certo">Com calma</button>
+      <button class="errado">Despacito</button>
+    </div>
+    <footer>
+      <p>
+        <span class="mticons home" >home</span>
+        <span class="mticons ajuda" >help_outline</span>
+      </p>
+    </footer>
+  </section>
+
+  <section class="final">
+    <h1>Parabéns!</h1>
+    <h3>Essa foi sua pontuação: <span class="resultado">0</span></h3>
+    <h3>Seus erros: <span class="errosF">0</span></h3>
+    <h3>Esse foi seu tempo total: <span class="tempo"></span> segundos</h3>
+    <img src="img/moça1.png" alt="">
+  </section>
+
+
+  <!-- SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script>
+    var musica = new Audio('music/musica - graveto.mp3');
+    var musica2 = new Audio('music/musica - mel.mp3')
+    $("section.inicio button").on("click",function(){
+      $("section").hide();
+      $("section.jogo").show();
+
+      musica = new Audio('music/musica - graveto.mp3');
+      musica.play(); 
+      musica2 = new Audio('music/musica - mel.mp3')
+      musica2.play(); 
+
+      var tempo = $(".tempo").text();
+    cronometroID = setInterval(function() {
+      tempo++;
+      $(".tempo").text(tempo);}, 1000);
+    });
+
+
+    $("section.jogo footer p span.mticons.home").one("click", function(){
+      $("section").hide();
+      $("section.inicio").show();
+      clearInterval(cronometroID);
+      $(".tempo").text("0");
+      musica.pause();
+      musica2.pause();
+    });  
+
+    $("section.jogo footer p span.mticons.ajuda").one("click", function(){
+      $("section.jogo button.errado.eliminar").css({opacity:0.5});
+    });  
+
+
+    $("section.jogo button.certo").one("click", function(){
+    var acertos = parseInt($("span.acertos").text());
+    var soma = 0;
+    somaF = 0;
+    soma = acertos + 1;
+    somaF = soma;
+    $("span.acertos").text(soma);
+
+    if(soma >= 2){
+      $("section").hide();
+      $("section.fase2").show();
+      musica.pause();
+      musica = new Audio('music/musica - calma.mp3');
+      musica.play(); 
+      musica2.pause();
+      musica2 = new Audio('music/musica - com ou sem mim.mp3')
+      musica2.play(); 
+      musica3 = new Audio('music/musica - contatinho.mp3')
+      musica3.play(); 
+    }
+
+  });
+  
+  var erros = 0;
+  errosF = 0;
+  $("section.jogo button.errado").one("click", function(){
+    
+    erros = erros + 1;
+    errosF += 1;
+    //erros += 1;
+    $(this).css({opacity:0.5});
+
+    if(erros >= 2){
+      //trasição de tela
+      clearInterval(cronometroID);
+      $("section").hide();
+      $("section.final").show();
+      $("section.final span.resultado").text(somaF);
+      $("section.final span.errosF").text(errosF);
+
+      musica.pause();
+      musica2.pause();
+      musica3.pause(); 
+    }
+    });
+
+    $("section.fase2 footer p span.mticons.home").one("click", function(){
+      $("section").hide();
+      $("section.inicio").show();
+      clearInterval(cronometroID);
+      $(".tempo").text("0");
+      musica.pause();
+      musica2.pause();
+      musica3.pause();
+    }); 
+
+    $("section.fase2 footer p span.mticons.ajuda").one("click", function(){
+      $("section.fase2 button.errado.eliminar").css({opacity:0.5});
+    }); 
+    
+    $("section.fase2 button.certo").one("click", function(){
+    var acerto = parseInt($("span.acerto").text());
+    var soma = 0;
+    soma = acerto + 1;
+    somaF += 1;
+    $("span.acerto").text(soma);
+    if(soma >= 3){
+      //trasição de tela
+      clearInterval(cronometroID);
+      $("section").hide();
+      $("section.final").show();
+      $("section.final span.resultado").text(somaF);
+      $("section.final span.errosF").text(errosF);
+      musica.pause();
+      musica2.pause();
+      musica3.pause(); 
+    }
+
+  });
+  
+   var erro = 0;
+  $("section.fase2 button.errado").one("click", function(){
+    erro = erro + 1;
+    errosF += 1;
+    //erros += 1;
+    $(this).css({opacity:0.5});
+
+    if(erro > 2){
+      //trasição de tela
+      clearInterval(cronometroID);
+      $("section").hide();
+      $("section.final").show();
+      $("section.final span.resultado").text(somaF);
+      $("section.final span.errosF").text(errosF);
+      musica.pause();
+      musica2.pause();
+      musica3.pause(); 
+    }
+    });
+  
+  </script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js">
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+@font-face {
+    font-family: 'mticons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/MaterialIcons-Regular.ttf);
+   }
+
+.mticons{
+    font-family:mticons;
+ }
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-size: 100vh 100vw;
+}
+
+section.inicio{
+    background-color: #EEAEEE;
+    text-align: center;
+    padding: 14vh 0 30vh 0 ;
+    box-sizing: border-box;
+}
+
+section.inicio h1{
+    margin: 0.5vw;
+    font-size: 3em;
+    color: black;
+    font-family: 'Permanent Marker', cursive;
+}
+
+section.inicio h2{
+    margin: 5vw;
+    font-size: 1.8em;
+    color: black;
+}
+
+section.inicio button{
+    display: inline-block;
+    background: #68357e;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 40px;
+    color: white;
+    margin: 5vw;
+    font-size: 1.5em;
+}
+
+section.inicio img{
+    width: 12em;
+    height: 12em;
+    margin: 0.5vw 1vh;
+}
+
+section.jogo{
+    display: none;
+}
+
+section.jogo{
+    background-color: #EEAEEE;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+
+section.jogo header{
+    background:  #68357e;
+    font-size: 1.5em;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    height: 8vh;
+    box-sizing: border-box;
+    position: relative;
+    color: white;
+}
+
+
+section.jogo header p span.mticons{
+    font-size: 1em;
+    padding: 3px 2px 0 2px;
+    position: relative;
+    top: 2px;
+    color: white;
+}
+
+section.jogo h1{
+    margin: 6vw;
+    font-size: 2em;
+    color: black;
+    font-family: 'Permanent Marker', cursive;
+}
+
+section.jogo p span.mticons{
+    font-size: 1em;
+    padding: 3px 2px 0 2px;
+    position: relative;
+    top: 2px;
+}
+
+section.jogo h3{
+    margin: 6vw;
+    font-size: 1em;
+    color: black;
+}
+
+section.jogo button{
+    display: inline-block;
+    background: #68357e;
+    background-position: 1em 1em;
+    border: none;
+    border-radius: 4px;
+    height: 40px;
+    width: 140px;
+    color: white;
+    margin: 5vw 2vh;
+    font-size: 1em;
+}
+
+section.jogo div {
+    height: 78vh;
+    padding: 5vh 1vw 0 1vw;
+}
+
+section.jogo footer{
+    width: 100vw;
+    height: 14vh;
+    background: #68357e;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    bottom: 0;
+    color: white;
+    padding: 8px 0 0 0;
+}
+section.jogo footer p{
+     display: flex;
+    justify-content: space-around;
+}
+section.jogo footer span.mticons{
+    position: relative;
+    top: 2px;
+}
+
+section.fase2{
+    background-color: #EEAEEE;
+    text-align: center;
+    box-sizing: border-box;
+    display: none;
+}
+
+section.fase2 header{
+    background: #68357e;
+    font-size: 1.5em;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    height: 8vh;
+    box-sizing: border-box;
+    position: relative;
+    color: white;
+}
+section.fase2 header p span.mticons{
+    font-size: 1em;
+    padding: 3px 2px 0 2px;
+    position: relative;
+    top: 2px;
+}
+
+
+section.fase2 h1{
+    margin: 6vw;
+    font-size: 2em;
+    color: black;
+    font-family: 'Permanent Marker', cursive;
+}
+
+section.fase2 p span.mticons{
+    font-size: 1em;
+    padding: 3px 2px 0 2px;
+    position: relative;
+    top: 2px;
+}
+
+section.fase2 h3{
+    margin: 6vw;
+    font-size: 1em;
+    color: black;
+}
+
+section.fase2 button{
+    display: inline-block;
+    background:#68357e;
+    background-position: 1em 1em;
+    border: none;
+    border-radius: 4px;
+    height: 40px;
+    width: 140px;
+    color: white;
+    margin: 5vw 2vh;
+    font-size: 1em;
+}
+
+section.fase2 div {
+    height: 78vh;
+    padding: 5vh 1vw 0 1vw;
+}
+
+section.fase2 footer{
+    width: 100vw;
+    height: 14vh;
+    background:#68357e;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    bottom: 0;
+    color: white;
+    padding: 8px 0 0 0;
+}
+section.fase2 footer p{
+     display: flex;
+    justify-content: space-around;
+}
+section.fase2 footer span.mticons{
+    position: relative;
+    top: 2px;
+}
+
+section.final{
+    display: none;
+}
+
+section.final{
+    background-color: #EEAEEE;
+    text-align: center;
+    padding: 14vh 0 75vh 0 ;
+    box-sizing: border-box;
+}
+
+section.final h1{
+    margin: 6vw;
+    font-size: 2.5em;
+    color: black;
+    font-family: 'Permanent Marker', cursive;
+}
+
+section.final h3{
+    margin: 6vw;
+    font-size: 1.5em;
+    color: black;
+}
+
+section.final img{
+    width: 20em;
+    height: 20em;
+    margin: 1vw 1vh;
+}
